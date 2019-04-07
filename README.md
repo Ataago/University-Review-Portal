@@ -4,7 +4,7 @@ An online university Review Portal finds its application in the General public. 
 
 ## Website - Universtiy Review System
 #### Developed and Designed by -
-    - Mohammed Ataaur Rahaman
+    - [Mohammed Ataaur Rahaman][http://github/Ataago]
     - Nabil Mahtab
     - Nishant Ranjan
     - Ayush Arora
