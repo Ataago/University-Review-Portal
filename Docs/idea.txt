@@ -1,0 +1,11 @@
+College Review System
+
+-display list of colleges
+-Add a college
+-Check Info of college
+-Check Reviews about each college
+-Add your college Review with proper authentication.
+
+-Authentication Based on
+	-Account ID and Password
+	-College student ID
