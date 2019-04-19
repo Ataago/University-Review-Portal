@@ -16,18 +16,32 @@
 <html>
 <head>
 	<title>University Review System</title>
+	<link rel="stylesheet" href="header.css">
 </head>
 <body>
 
-	<h1>Welcome</h1>
 
-	<?php	if (isset($_SESSION['logged'])) : ?>
-		<h1><?php echo "  " . $_SESSION['username'] ?></h1>
-		<button><a href="home.php?logout='1'">logout</a></button>
-	<?php else :?>
-		<button><a href="login.php">login</a></button>
-	<?php endif ?>
 
+
+</div>
+
+	<div class="header">
+		<a  class="logo">WELCOME TO UNIVERSITY REVIEW SYSTEM</a>
+
+		<?php	if (isset($_SESSION['logged'])) : ?>
+
+			<div class="header-right">
+			    <a class="logout" href="home.php?logout='1'"> <?php echo "" . $_SESSION['username'] ?> </a>
+			</div>
+		
+		<?php else :?>
+	
+			<div class="header-right">
+			    <a class="login" href="login.php"> login </a>
+			</div>
+		
+		<?php endif ?>
+	</div>
 	<h3><center><a href="universities.php">Find University</a></center></h3>
 </body>
 </html>

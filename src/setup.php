@@ -28,7 +28,7 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating table: " . mysqli_error($conn) . "<br />";
 }
 
-// Insert Demo User values
+// //Insert Demo User values
 // $sql = "INSERT INTO users (username, email, password) VALUES ('ataago', '1234', 'ataago7@gmail.com')";
 
 // if (mysqli_query($conn, $sql)) {
@@ -52,14 +52,15 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
-// Insert University
+// //Insert University
 //$sql = "INSERT INTO universities (u_name, u_location) VALUES ('Dayananda Sagar Institute', 'Bangalore')";
 //$sql = "INSERT INTO universities (u_name, u_location) VALUES ('Peoples Educational Society', 'Bangalore')";
-$sql = "INSERT INTO universities (u_name, u_location) VALUES ('Osmania University', 'Hyderabad')";
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully" . "<br />";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br />";
-}
+//$sql = "INSERT INTO universities (u_name, u_location) VALUES ('Osmania University', 'Hyderabad')";
+
+// if (mysqli_query($conn, $sql)) {
+//     echo "New record created successfully" . "<br />";
+// } else {
+//     echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br />";
+// }
 
 ?>

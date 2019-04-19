@@ -1,6 +1,5 @@
 <?php
 
-echo "Server.php included" . "<br />";
 session_start();
 
 // Connect to DB
@@ -45,7 +44,6 @@ if(isset($_POST['login']))
 		{
 			if ($user['password'] === $password)
 			{
-				echo "password Matched" . "<br />";
 				$_SESSION['username'] = $username;
 				$_SESSION['logged'] = "1";
 				header("location: home.php");
@@ -59,9 +57,7 @@ if(isset($_POST['login']))
 		{
 			echo "Enter a valid Username" . "<br />";
 		}
-
 	}
-
 }
 
 // Register new User
@@ -156,6 +152,30 @@ if (isset($_POST['confirm_add_university']))
 		if (mysqli_query($conn, $sql)) 
 		{
 		    echo "New record created successfully" . "<br />";
+
+		    // Create individual University table
+		    $sql = "SELECT u_id, u_name, u_location FROM universities WHERE u_name = '$u_name'";
+			$result = mysqli_query($conn, $sql);
+			$university = mysqli_fetch_assoc($result);
+			$u_id = $university['u_id'];
+			$table_name = "university" . $u_id;
+			
+			$sql = "CREATE TABLE $table_name (
+			c_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			author VARCHAR(30) NOT NULL,
+			comment VARCHAR(1000) NOT NULL
+			)";
+			if (mysqli_query($conn, $sql)) 
+			{
+			    echo "Table $u_name created successfully" . "<br />";
+			} 
+			else 
+			{
+			    echo "Error creating table: " . mysqli_error($conn) . "<br />";
+			}
+
+
+			// Navigate to main page
 			header("location: universities.php");
 		} 
 		else 
@@ -165,7 +185,59 @@ if (isset($_POST['confirm_add_university']))
 	}
 }
 
+if (isset($_POST['add_review']))
+{
+	$error = 0;
 
-mysqli_close($conn);
+	$table_name = "university" . $_SESSION['u_id'];
+	if (isset($_SESSION['username']))
+		$author = $_SESSION['username'];
+	$comment = $_POST['comment'];
+
+	if (empty($author))
+	{
+		echo "Please Login to Review." . "<br />";
+		$error += 1;
+	}
+
+	if (empty($comment))
+	{
+		echo "Please write a Review" . "<br />";
+		$error += 1;
+	}
+
+	if (!$error)
+	{
+		$sql = "SELECT c_id, author, comment FROM $table_name WHERE author = '$author'";
+		$result = mysqli_query($conn, $sql);
+		$reviewer = mysqli_fetch_assoc($result);
+		if ($reviewer)
+		{
+			$sql = "UPDATE $table_name SET comment = '$comment' WHERE author = '$author'";
+			if(mysqli_query($conn, $sql))
+			{
+				echo "Review Updated";
+			}
+			else
+			{
+				echo "Error" . mysqli_error($conn) . "<br />";
+			}
+		}
+		else
+		{
+			$sql = "INSERT INTO $table_name (author, comment) VALUES ('$author', '$comment')";
+			if (mysqli_query($conn, $sql))
+			{
+				echo "Your Review has been posted!" . "<br />";
+			} 
+			else
+			{
+				 echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br />";
+			}
+		}
+	}
+}
+
+//mysqli_close($conn);
 
 ?>
