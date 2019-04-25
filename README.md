@@ -12,6 +12,6 @@ An online university Review Portal finds its application in the General public. 
 #### Developed and Designed by -
 - [Mohammed Ataaur Rahaman](https://github.com/Ataago)
 - Nabil Mahtab
-- Nishant Ranjan
+- [Nishant Ranjan](https://github.com/nik3010)
 - Ayush Arora
    
