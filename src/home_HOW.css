@@ -1,0 +1,39 @@
+.HowItWorks
+{
+    padding: 20px;
+    position: relative;
+    top: 800px;
+    background-color: coral;
+    height: 400px;
+}
+
+.text{
+  text-align: center;
+  font-family:"Gill Sans", sans-serif;
+  font-size: 25px;
+}
+
+.icons{
+  position:relative;
+}
+.icon1{
+  position: absolute;
+  left:10%;
+  top:70px;
+}
+.icon2{
+  position: absolute;
+  left:40%;
+  top:70px;
+}
+p{
+  font-family: "Gill Sans", sans-serif;
+  
+}
+
+.icon3{
+  position: absolute;
+  left:70%;
+  top:70px;
+}
+

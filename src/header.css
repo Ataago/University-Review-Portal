@@ -1,19 +1,21 @@
 body{
 	margin: 0;
-	background-color: ;
 }
 
 .header {
+
   overflow:hidden;
   text-align: center;
   font-size: 35px;
-  background-color: grey;
+  background: linear-gradient(top,#3c3c3c 0% , #222222 100%);
+  background: -webkit-linear-gradient(top,#3c3c3c 0% , #222222 100%);
   padding: 20px 10px;
+  color: white;
 }
 
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 30px;
   text-decoration:none;
@@ -26,16 +28,17 @@ body{
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
+  color: white;
 }
 
 .header a.login:hover {
-  background-color: black;
-  color: white;
+  background-color: coral;
+  color: black;
 }
 
 .header a.logout:hover {
-  background-color: black;
-  color: white;
+  background-color: coral;
+  color: black;
 }
 
 

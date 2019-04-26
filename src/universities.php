@@ -15,7 +15,7 @@
 <head>
 	<title>University Review Portal</title>
 	<link rel="stylesheet" href="header.css">
-	<link rel="stylesheet" href="universities.css">
+	<link rel="stylesheet" href="university.css">
 	<script type="text/javascript" src="universities.js"> </script>
 </head>
 
@@ -48,9 +48,8 @@
 					<td><input type="text" name="u_location" required></td>
 				</tr>
 				<tr>
-					<td></td>
-					<td><input type="submit" name="confirm_add_university" value = "Add">
-						<button><a href = "universities.php" onclick="cancel_add_university()">cancel</a></button></td>
+					<td><a href = "universities.php" onclick="cancel_add_university()">Cancel</a></td>
+					<td><input type="submit" name="confirm_add_university" value = "Add"></td>
 				</tr>
 			</table>
 		</form>
@@ -69,7 +68,7 @@
 				$u_name = $university['u_name'];
 				$u_id = $university['u_id'];
 				echo "<tr>";
-					echo "<td><a href = \"?university_id=$u_id\" name = \"university_details\">" . $u_name . "</a></td>";
+					echo "<td><a class = \"university_details\" href = \"?university_id=$u_id\"  name = \"university_details\">" . $u_name . "</a></td>";
 					echo "<td>" . $university['u_location'] . "</td>";
 				echo "</tr>";
 			}
@@ -102,7 +101,7 @@
 	<!-- University Pages -->
 	<div class = 'university_review_page' id ="university_review_page">
 		<!-- Close Popup University -->
-		<div>
+		<div class="close_university">
 			<a href = "universities.php?university_id=0" class = "cancel_page" name = "cancel_page"> &#10005 </a>
 		</div>
 
@@ -118,7 +117,7 @@
 
 				echo "<br /><img class = \"university_img\" src=\"img/$u_id.jpg\" alt=\"Image not available\">";
 				echo "<h2><center>$u_name</center></h2>";
-				echo "<h2 align = 'right'>$u_location</h2>";
+				echo "<h3 align = 'right'>$u_location</h3>";
 			?>
 		</div>
 
@@ -151,7 +150,7 @@
 					<form action="universities.php" method="post">
 						<h4>Write a Review:</h4>
 						<center>
-						<textarea class = "review_box" name="comment" rows="5" cols="140"></textarea>
+						<textarea class = "review_box" name="comment" rows="9" cols="140"></textarea>
 						<input type="submit" name="add_review" />	
 						</center>
 					</form>
@@ -161,11 +160,6 @@
 			</div>
 		</div>
 	</div>
-
-<?php
-
-?>
-
 
 
 </body>
