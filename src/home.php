@@ -80,7 +80,11 @@
 
 	<div class="HowItWorks">
 		<div class="text">
-			<p>How URP Works?</p>
+			<p>How URP adsfasdfWorks?</p>
+			<h1>count:</h1>
+			<?php
+				echo "<h1>count:</h1>";
+			?>
 		</div>
 		<div class="icons">
 			<div class="icon1"><i class="fas fa-chalkboard-teacher" style="font-size:150px"></i>
